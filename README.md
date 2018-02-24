@@ -1,11 +1,13 @@
 # angr-rust-example
 
-Proof of concept that [angr](angr.io) may can analyze Rust binary. I post it
-here in case of being useful to someone else.
+Proof of concept that [angr](http://angr.io) may can analyze Rust binary. I post
+it here in case of being useful to someone else.
 
 ## Usage
 
 ```bash
+$ rustc --version
+rustc 1.25.0-nightly (b1f8e6fb0 2018-02-22)
 $ make
 $ make solve
 ```
