@@ -36,6 +36,8 @@ use std::os::raw::c_char;
 pub extern "C" fn base64(c_str: *const c_char) -> i32 {
   let slice = unsafe { CStr::from_ptr(c_str) };
   let data = slice.to_bytes();
+  // $ echo -n h1baby | base64
+  // aDFiYWJ5
   let value_to_decode = "aDFiYWJ5";
 
   let result = base64_encode(data);
@@ -47,8 +49,6 @@ pub extern "C" fn base64(c_str: *const c_char) -> i32 {
 }
 
 // copied from `rustc_serialize`.
-// this base64 algorithm is a little buggy, it only produces a prefix of the
-// actual result.
 fn base64_encode(input: &[u8]) -> String {
   static BYTES: &[u8] =
     b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
