@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 
 import angr
+import sys
 
-p = angr.Project("build/main")
+if sys.argv[1] == "main":
+  p = angr.Project("build/main")
+elif sys.argv[1] == "bench":
+  p = angr.Project("build/bench")
 
 state = p.factory.full_init_state()
 state.options.add(angr.options.BYPASS_UNSUPPORTED_SYSCALL)
