@@ -1,3 +1,5 @@
+// C++ implementation, for benchmark.
+
 #include <cstdint>
 #include <string>
 #include <vector>
@@ -13,7 +15,7 @@ string base64_encode(const vector<uint8_t>& input) {
   string output((len + 2) / 3 * 4, '=');
   int ptr = 0;
 
-  for (int i = 0; i + 3 <= len - mod_len; i += 3) {
+  for (int i = 0; i < len - mod_len; i += 3) {
     uint32_t first = input[i];
     uint32_t second = input[i + 1];
     uint32_t third = input[i + 2];
